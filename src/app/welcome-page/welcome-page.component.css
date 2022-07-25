@@ -1,0 +1,18 @@
+.main-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgb(55, 54, 54);
+}
+
+.mat-card {
+  margin-top: 25vh;
+  padding: 30px;
+}
+
+.mat-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

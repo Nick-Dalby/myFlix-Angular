@@ -1,0 +1,53 @@
+<div
+  style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+  "
+>
+  <mat-card mat-card *ngFor="let movie of movies; let i = index">
+    <mat-card-header>
+      <mat-card-title>{{ movie.Title }}</mat-card-title>
+      <mat-card-subtitle
+        >Directed by: {{ movie.Director.Name }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <img
+      src="{{ movie.ImagePath }}"
+      alt="{{ movie.Title }}"
+      style="width: 290px; aspect-ratio: 2/3; object-fit: cover"
+    />
+    <mat-card-actions
+      style="display: flex; justify-content: space-evenly; align-items: center"
+    >
+      <button
+        mat-button
+        color="primary"
+        (click)="openGenreComponent(movie.Genre.Name)"
+      >
+        Genre
+      </button>
+      <button
+        mat-button
+        color="primary"
+        (click)="openDirectorComponent(movie.Director.Name)"
+      >
+        Director
+      </button>
+      <button
+        mat-button
+        color="primary"
+        (click)="openSynopsisComponent(movie.Description)"
+      >
+        Synopsis
+      </button>
+      <button mat-icon-button
+      >
+        <mat-icon (click)="addFavorite(movie._id)" *ngIf="!isFavorite(movie._id)" color="accent">favorite_border</mat-icon>
+        <mat-icon (click)="removeFavorite(movie._id)" *ngIf="isFavorite(movie._id)" color="accent">favorite</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
