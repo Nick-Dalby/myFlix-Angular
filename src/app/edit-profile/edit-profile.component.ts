@@ -24,6 +24,10 @@ export class EditProfileComponent implements OnInit {
   closeDialog() {
     this.dialogRef.close();
   }
+  
+  /**
+   * API call to update user data
+   */
 
   updateUserInfo() {
     console.log('updating info');

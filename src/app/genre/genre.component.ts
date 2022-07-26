@@ -20,6 +20,9 @@ export class GenreComponent implements OnInit {
     this.getGenreInfo()
   }
 
+  /**
+   * API call to get genre data
+   */
   getGenreInfo(): void {
     this.fetchApiData
       .getGenre(this.genreName)

@@ -20,6 +20,10 @@ export class DirectorComponent implements OnInit {
     
   }
 
+  /**
+   * API call to get director data
+   */
+
   getDirectorInfo(): void {
     this.fetchApiData
       .getDirector(this.directorName)

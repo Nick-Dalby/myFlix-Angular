@@ -23,6 +23,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUser()
   }
+  /**
+   * calls get user function
+   * @returns user data object
+   */
 
   getUser() {
     this.fetchApiData.getUser().subscribe((response: any) => {
@@ -33,11 +37,18 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * open a dialog with form to update data
+   */
   openEditDialog() {
     this.dialog.open(EditProfileComponent, {
       width: '400px',
     });
   }
+
+  /**
+   * calls delete user function from fetchApiData
+   */
 
   deleteAccount() {
     if (confirm('are you sure you want to delete your account?')) {

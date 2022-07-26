@@ -24,6 +24,10 @@ export class MovieCardComponent implements OnInit {
     this.getUserFavs();
   }
 
+  /**
+   * gets movies via API call
+   * @returns movies object
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((response: any) => {
       this.movies = response;
@@ -58,18 +62,32 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * API call to add favourite movie to favorites array
+   * @param movieID 
+   * @returns 
+   */
+
   addFavorite(movieID: string) {
     console.log(movieID, 'added to favs');
     this.fetchApiData.addFavMovie(movieID).subscribe((response) => {});
     return this.getUserFavs();
   }
 
+  /**
+   * API call to remove favourite movie from favorites array
+   * @param movieID 
+   * @returns 
+   */
   removeFavorite(movieID: string) {
     console.log(movieID, 'removed from favs');
     this.fetchApiData.deleteFavMovie(movieID).subscribe((response) => {});
     return this.getUserFavs();
   }
 
+  /**
+   * API call to get favourite movie from favorites array
+   */
   getUserFavs() {
     this.fetchApiData.getUser().subscribe((response) => {
       this.favoriteMovieIds = response.FavoriteMovies;
@@ -77,6 +95,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * check if movie is included in users favorite movie
+   * @param id 
+   * @returns 
+   */
   isFavorite(id: string): boolean {
     return this.favoriteMovieIds.includes(id);
   }

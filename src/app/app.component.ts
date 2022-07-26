@@ -11,6 +11,10 @@ export class AppComponent {
 
   constructor(public router: Router) { }
 
+/**
+ * logs user out, clears username and JWT from local storage
+ */
+
   logout() {
     localStorage.clear()
     this.router.navigate([''])
